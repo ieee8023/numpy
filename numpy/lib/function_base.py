@@ -1324,6 +1324,7 @@ def piecewise(x, condlist, funclist, *args, **kw):
         totlist = np.logical_or.reduce(condlist, axis=0)
         # Only able to stack vertically if the array is 1d or less
         if x.ndim <= 1:
+            totlist = np.any(condlist, axis=0, keepdims=True)
             condlist = np.concatenate([condlist, ~totlist], axis=0)
         else:
             condlist = [asarray(c, dtype=bool) for c in condlist]
