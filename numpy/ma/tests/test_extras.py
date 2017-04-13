@@ -1122,17 +1122,6 @@ class TestCov(TestCase):
                             (np.cov(xf, rowvar=False, bias=True) *
                              x.shape[0] / frac))
 
-
-    def test_shapes(self):
-        #test 1-d and 2-d inputs
-        data = np.asarray(np.random.rand(5,3))
-        y = np.asarray(np.random.rand(2,3))
-        assert_almost_equal(cov(data,y=y), np.cov(data,y=y))
-
-        data = np.asarray(np.random.rand(2,))
-        y = np.asarray(np.random.rand(2,))
-        assert_almost_equal(cov(data,y=y), np.cov(data,y=y))
-
 class TestCorrcoef(TestCase):
 
     def setUp(self):
