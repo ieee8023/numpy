@@ -2957,7 +2957,7 @@ def cov(m, y=None, rowvar=True, bias=False, ddof=None, fweights=None,
 
     >>> x = [-2.1, -1,  4.3]
     >>> y = [3,  1.1,  0.12]
-    >>> X = np.concatenate((x,y), axis=0)
+    >>> X = np.concatenate([np.atleast_2d(m) for m in (x,y)], axis=0)
     >>> print(np.cov(X))
     [[ 11.71        -4.286     ]
      [ -4.286        2.14413333]]
